@@ -6,16 +6,36 @@
     <title>eyedropper-polyfill demo</title>
     <style>
       body {
-        height: 5000px;
-      }
-
-      .tp-dfwv {
-        position: fixed !important;
+          margin: 0;
+          padding: 0;
+          min-height: 100vh;
+          background: radial-gradient(circle at 30% 50%,
+          #ff6b6b,
+          #4ecdc4,
+          #45b7d1);
       }
     </style>
   </head>
   <body>
-    <main></main>
-    <script type="module" src="./demo.ts"></script>
+    <main>
+        <button onclick="pickColor()">PickColor</button>
+        <div id="clr-value" style="width: 1em; height: 1em; border: 5px solid; background: #fff"></div>
+    </main>
+    <script>
+        function pickColor() {
+          const eyeDropper = new window.EyeDropper();
+          eyeDropper
+            .open()
+            .then((colorSelectionResult) => {
+              // Use the selected color information
+              console.log('Selected color:', colorSelectionResult.sRGBHex);
+              document.querySelector('#clr-value').style.backgroundColor = colorSelectionResult.sRGBHex;
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+        }
+    </script>
+	<script src="eyedropper-polyfill.js"></script>
   </body>
 </html>

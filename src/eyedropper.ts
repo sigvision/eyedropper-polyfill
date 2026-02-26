@@ -108,6 +108,7 @@ export class EyeDropperPolyfill implements EyeDropper {
       useCORS: true,
       height: document.body.scrollHeight,
       width: document.body.scrollWidth,
+      logging: false
     });
 
     this.addCanvasStyle(this.canvas);
