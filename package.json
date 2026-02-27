@@ -28,8 +28,9 @@
   },
   "sideEffects": true,
   "scripts": {
-    "bun:build": "bun build.cjs",
-    "build": "node build.cjs"
+    "types": "cp ./window.d.ts ./dist/eyedropper-polyfill.d.ts",
+    "bun:build": "bun build.cjs && bun run types",
+    "build": "node build.cjs && npm run types"
   },
   "devDependencies": {
     "@babel/generator": "^7.29.1",

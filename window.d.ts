@@ -1,3 +1,4 @@
+declare module 'eyedropper-polyfill';
 declare global {
   interface Window {
     /**

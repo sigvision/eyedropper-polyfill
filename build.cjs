@@ -20,7 +20,7 @@ async function build() {
       format: 'esm',
       platform: 'browser',
       target: ['es6'],
-      minify: true,
+      minify: false,
       sourcemap: true,
       globalName: 'EyeDropperPolyfill',
       // Важно: включаем автоматическое разрешение всех импортов
